@@ -1,0 +1,122 @@
+
+import java.util.Scanner;
+
+public class Stats {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a;
+        int b;
+        int c;
+        int d;
+        int e;
+        int max = 0;
+        int min = 0;
+        double mean = 0;
+        int sum = 0;
+        int range = 0;
+        double SD = 0;
+        int one;
+        int two;
+        int three;
+        System.out.println("Please enter 5 integers:");
+        a = sc.nextInt();
+        b = sc.nextInt();
+        c = sc.nextInt();
+        d = sc.nextInt();
+        e = sc.nextInt();
+        if (a > b && a > c && a > d && a > e) {
+            max = a;
+            System.out.println("The max element is: " + max);
+        } else if (b > a && b > c && b > d && b > e) {
+            max = b;
+            System.out.println("The max element is: " + max);
+        } else if (c > a && c > b && c > d && c > e) {
+            max = c;
+            System.out.println("The max element is: " + max);
+        } else if (d > a && d > b && d > c && d > e) {
+            max = d;
+            System.out.println("The max element is: " + max);
+        } else if (e > a && e > b && e > c && e > d) {
+            max = e;
+            System.out.println("The max element is: " + max);
+        }
+
+        if (a < b && a < c && a < d && a < e) {
+            min = a;
+            System.out.println("The min element is: " + min);
+        } else if (b < a && b < c && b < d && b < e) {
+            min = b;
+            System.out.println("The min element is: " + min);
+        } else if (c < a && c < b && c < d && c < e) {
+            min = c;
+            System.out.println("The min element is: " + min);
+        } else if (d < a && d < b && d < c && d < e) {
+            min = d;
+            System.out.println("The min element is: " + min);
+        } else if (e < a && e < b && e < c && e < d) {
+            min = e;
+            System.out.println("The min element is: " + min);
+        }
+        if (a != max && a != min) {//Median
+            one = a;
+        } else if (b != max && b != min) {
+            if (one == a) {
+                two = b;
+            } else {
+                two = a;
+            }
+        } else if ((c != max && c != min)) {
+            if (two == a) {
+                three = b;
+            } else if (two == b) {
+                three = c;
+            } else {
+                three = a;
+            }
+        } else if (d != max && d != min) {
+            if (c == one) {
+                two = d;
+            } else if (c == two) {
+                three = d;
+            } else {
+                if (two == d) {
+                    three = e;
+                }
+            }
+        }
+     
+            if ((one > two && two > three) || (three > two && two > one)) {
+                System.out.println("The median element is: " + two);
+            } else if ((two > one && one > three) || (three > one && one > two)) {
+                System.out.println("The median element is: " + one);
+            } else {
+                System.out.println("The median element is: " + three);
+            }
+        
+
+        if (a == b || a == c || a == d || a == e) {
+            System.out.println("The modal element is: " + a);
+        } else if (b == a || b == c || b == d || b == e) {
+            System.out.println("The modal element is: " + b);
+        } else if (c == a || c == b || c == d || c == e) {
+            System.out.println("The modal element is: " + c);
+        } else if (d == a || d == c || d == b || d == e) {
+            System.out.println("The modal element is: " + b);
+        } else if (e == a || e == c || e == d || e == b) {
+            System.out.println("The modal element is: " + e);
+        }
+
+        range = (max - min);
+        System.out.println("The range is: " + range);
+        sum = (a + b + c + d + e);
+        System.out.println("The sum of the elements is: " + sum);
+        mean = (sum / 5);
+        System.out.println("The mean is: " + mean);
+        SD = Math.sqrt((Math.pow((a - mean), 2) + Math.pow((b - mean), 2) + Math.pow((c - mean), 2) + Math.pow((d - mean), 2) + Math.pow((e - mean), 2)) / 5);
+        System.out.println("The standard deviation of the elements is: " + SD);
+
+    }
+}
+
+
